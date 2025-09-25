@@ -55,7 +55,7 @@ send the values to the server and store the values in the database. To do valida
     },
     validationSchema: formSchema,
 onSubmit: (values) => {
-      fetch("customers", {
+      fetch("/customers", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -63,7 +63,7 @@ onSubmit: (values) => {
         body: JSON.stringify(values, null, 2),
       }).then(
         (res) => {
-          if (res.status == 200){
+          if (res.status === 200){
             setRefreshPage(!refreshPage)
           }
         }
@@ -221,14 +221,14 @@ export const SignupForm = () => {
     },
     validationSchema: formSchema,
     onSubmit: (values) => {
-      fetch("customers", {
+      fetch("/customers", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(values, null, 2),
       }).then((res) => {
-        if (res.status == 200) {
+        if (res.status === 200) {
           setRefreshPage(!refreshPage);
         }
       });

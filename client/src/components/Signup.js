@@ -37,11 +37,12 @@ export const SignupForm = () => {
     },
     validationSchema: formSchema,
     onSubmit: (values) => {
-      fetch("customers", {
+      fetch("/customers", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
+        credentials: "same-origin",
         body: JSON.stringify(values, null, 2),
       }).then((res) => {
         if (res.status == 200) {

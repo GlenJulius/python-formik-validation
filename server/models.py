@@ -1,3 +1,4 @@
+import html
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy_serializer import SerializerMixin
 
@@ -11,4 +12,4 @@ class Customer(db.Model, SerializerMixin):
     email = db.Column(db.String, unique=True)
 
     def __repr__(self):
-        return f'Customer: {self.name}, age: {self.age}, email: {self.email}'
+        return f'Customer: {html.escape(str(self.name))}, age: {self.age}, email: {html.escape(str(self.email))}'
